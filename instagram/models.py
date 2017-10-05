@@ -39,6 +39,11 @@ class Image(ApiModel):
 
 class Video(Image):
 
+    def  def __init__(self, *args, **kwargs):
+        for k, v in kwargs.iteritems():
+            setattr(self, k, v)
+        super(Image, self).__init__(*args)
+
     def __unicode__(self):
         return "Video: %s" % self.url
 
